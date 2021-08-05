@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#INSTALL APACHE, MYSQL, PHP8 (LEMP-STACK) FOR RHEL 8 / ALAMA LINUX 8
+#INSTALL APACHE, MYSQL, PHP8 (LAMP-STACK) FOR RHEL 8 / ALAMA LINUX 8
 
 dnf update
 dnf install -y epel-release
