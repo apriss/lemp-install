@@ -1,7 +1,6 @@
-
 #!/bin/bash
 
-#INSTALL NGINX, MARIADB, PHP74 (LEMP-STACK) FOR UBUNTU20
+#INSTALL NGINX, MYSQL/MARIADB, PHP74 (LEMP-STACK) FOR UBUNTU20/DEBIAN
 
 sudo apt update
 
@@ -16,21 +15,28 @@ sudo systemctl start
 sudo systemctl enable nginx
 
 # Install MariaDB  Database Server
-echo -n "Please select database server do want to install? (1. MariaDB / 2. Mysql) " 
+echo -n "Please select database server do want to install? (1. MariaDB, 2. Mysql, 3 Finish) " 
 read ans
 case $ans in
         1)
 	      sudo apt install mariadb-server -y
               sudo systemctl start mariadb
-              sudo systemctl enable mariadb 	     
+              sudo systemctl enable mariadb
+	      mysql_secure_installation
 	      ;;	
         
 	2)
 	      sudo apt install mysql-server -y
               sudo systemctl start mysql
               sudo systemctl enable mysql
+	      mysql_secure_installation
 	      ;;
-        
-esac
+	      
+	3)
+	      exit;;
+	      
+	*)
+	      echo "Invalid Option"
+              ;;
 
-sudo mysql_secure_installation
+esac
