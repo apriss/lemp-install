@@ -25,8 +25,8 @@ case $ans in
               sudo systemctl enable mariadb 	     
 	      ;;	
         
-	      2)
-		          sudo apt install mysql-server -y
+	2)
+	      sudo apt install mysql-server -y
               sudo systemctl start mysql
               sudo systemctl enable mysql
 	      ;;
