@@ -16,11 +16,11 @@ sudo systemctl start
 sudo systemctl enable nginx
 
 # Install MariaDB  Database Server
-cho -n "Please select database server do want to install? (1. MariaDB / 2. Mysql) " 
+echo -n "Please select database server do want to install? (1. MariaDB / 2. Mysql) " 
 read ans
 case $ans in
         1)
-	            sudo apt install mariadb-server -y
+	      sudo apt install mariadb-server -y
               sudo systemctl start mariadb
               sudo systemctl enable mariadb 	     
 	      ;;	
