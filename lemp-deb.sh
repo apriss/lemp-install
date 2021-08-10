@@ -6,7 +6,6 @@ sudo apt update
 
 #STEP 1. INSTALL NGINX WEB SERVER
 sudo apt install nginx -y
-#sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 'Nginx HTTPS'
 sudo systemctl start 
 sudo systemctl enable nginx
@@ -20,13 +19,13 @@ read ans
 case $ans in
          1)
 	    sudo apt install php7.4 php7.4-fpm php7.4-mysql php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-mbstring php7.4-xml php7.4-gd php7.4-curl -y
-            
+            sudo systemctl start php7.4-fpm
             sudo systemctl restart nginx
 	 ;;	
               
 	 2)
 	    sudo apt install php8.0 libapache2-mod-php8.0 php8.0-fpm libapache2-mod-fcgid php8.0-mysql php8.0-gd php8.0-common php8.0-cli php8.0-xml -y
-            sudo systemctl start 
+            sudo systemctl start php8.0-fpm
             sudo systemctl restart nginx
 	 ;;
 	      
