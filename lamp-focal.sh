@@ -17,14 +17,14 @@ echo -n "Please select PHP version do want to install? (1. PHP 7.4, 2. PHP 8, 3.
 read ans
 case $ans in
          1)
-	    sudo apt install php7.4 php7.4-fpm php7.4-mysql php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-mbstring php7.4-xml php7.4-gd php7.4-curl -y
+	    sudo apt install libapache2-mod-php7.4 php7.4-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip}-y
             sudo systemctl restart apache2
             sudo a2enmod proxy_fcgi setenvif
             sudo a2enconf php7.4-fpm
 	 ;;	
               
 	 2)
-	    sudo apt install libapache2-mod-php8.0 php8.0-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,readline,xml,zip} -y
+	    sudo apt install libapache2-mod-php8.0 php8.0-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
             sudo systemctl restart apache2
             sudo a2enmod proxy_fcgi setenvif
             sudo a2enconf php8.0-fpm
