@@ -10,7 +10,7 @@ sudo systemctl enable apache2
 sudo ufw allow 'Apache Secure'
 
 #STEP 2 iNSTALL PHP MODULE
-sudo apt install software-properties-common
+sudo apt install software-properties-common -y
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 echo -n "Please select PHP version do want to install? (1. PHP 7.4, 2. PHP 8, 3. Skip) " 
@@ -38,6 +38,8 @@ case $ans in
         ;;
 
 esac
+
+echo "<?php phpinfo(); ?>" > /var/www/html/info.php
 
 #STEP 3 INSTALL DATABASE SERVER
 echo -n "Please select database server do want to install? (1. MariaDB, 2. Mysql, 3. Finish) " 
