@@ -20,26 +20,26 @@ echo -n "Please select PHP version do want to install? (1. PHP 7.4, 2. PHP 8, 3.
 read ans
 case $ans in
          1)
-	          dnf module enable php:remi-7.4 -y
+	    dnf module enable php:remi-7.4 -y
             apt install php7.4-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip}-y
             systemctl enable php-fpm
             systemctl start php-fpm
             systemctl restart nginx
-	       ;;	
+	 ;;	
               
-	       2)
-	          dnf module enable php:remi-8.0 -y
+	 2)
+	    dnf module enable php:remi-8.0 -y
             apt install php8.0-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
             systemctl enable php-fpm
             systemctl start php-fpm
             systemctl restart nginx        
-	       ;;
+	 ;;
 	      
-	       3)
-	          exit;;
+	 3)
+	    exit;;
 	      
-	       *)
-	          echo "Invalid Option"
+	 *)
+	    echo "Invalid Option"
          ;;
 
 esac
@@ -51,24 +51,24 @@ echo -n "Please select database server do want to install? (1. MariaDB, 2. Mysql
 read ans
 case $ans in
         1)
-	         apt install mariadb-server -y
+	   apt install mariadb-server -y
            systemctl start mariadb
            ssystemctl enable mariadb
-	         mysql_secure_installation
-	      ;;	
+	   mysql_secure_installation
+	;;	
         
-	      2)
-	         apt install mysql-server -y
+	2)
+	   apt install mysql-server -y
            systemctl start mysql
            systemctl enable mysql
-	         mysql_secure_installation
-	      ;;
+	   mysql_secure_installation
+	;;
 	      
-	      3)
-	         exit;;
+	3)
+	   exit;;
 	      
-	      *)
-	         echo "Invalid Option"
+	*)
+	   echo "Invalid Option"
         ;;
 
 esac
