@@ -24,7 +24,7 @@ case $ans in
 	 ;;	
               
 	 2)
-	    sudo apt install php8.0 libapache2-mod-php8.0 php8.0-fpm libapache2-mod-fcgid php8.0-mysql php8.0-gd php8.0-common php8.0-cli php8.0-xml -y
+	    sudo apt install libapache2-mod-php8.0 php8.0-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,readline,xml,zip} -y
             sudo systemctl restart apache2
             sudo a2enmod proxy_fcgi setenvif
             sudo a2enconf php8.0-fpm
