@@ -21,7 +21,7 @@ read ans
 case $ans in
          1)
 	    dnf module enable php:remi-7.4 -y
-            dnf install php7.4-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip}-y
+            dnf install php-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip}-y
             systemctl enable php-fpm
             systemctl start php-fpm
             systemctl restart nginx
@@ -29,7 +29,7 @@ case $ans in
               
 	 2)
 	    dnf module enable php:remi-8.0 -y
-            dnf install php8.0-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
+            dnf install php-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
             systemctl enable php-fpm
             systemctl start php-fpm
             systemctl restart nginx        
