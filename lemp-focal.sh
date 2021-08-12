@@ -7,7 +7,7 @@ sudo apt update
 #STEP 1. INSTALL NGINX WEB SERVER
 sudo apt install nginx -y
 sudo ufw allow 'Nginx HTTPS'
-sudo systemctl start 
+sudo systemctl start nginx
 sudo systemctl enable nginx
 
 #STEP 2. iNSTALL PHP MODULE
