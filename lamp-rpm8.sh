@@ -29,7 +29,7 @@ case $ans in
               
 	 2)
 	    dnf module enable php:remi-8.0 -y
-            apt install libapache2-mod-php php-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
+            dnf install libapache2-mod-php php-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
             systemctl start php-fpm
 	    systemctl enable php-fpm
             systemctl restart httpd
