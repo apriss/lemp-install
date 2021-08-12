@@ -21,7 +21,7 @@ echo -n "Please select PHP version do want to install? (1. PHP 7.4, 2. PHP 8, 3.
 read ans
 case $ans in
          1)
-	    dnf module enable php:remi-7.4 -y
+	    dnf module enable php:remi-7.4 
             dnf install php-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip}-y
             systemctl start php-fpm
 	    systemctl enable php-fpm
@@ -29,7 +29,7 @@ case $ans in
 	 ;;	
               
 	 2)
-	    dnf module enable php:remi-8.0 -y
+	    dnf module enable php:remi-8.0 
             dnf install php-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
             systemctl start php-fpm
 	    systemctl enable php-fpm
