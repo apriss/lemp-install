@@ -10,6 +10,7 @@ dnf install -y httpd httpd-tools
 systemctl start httpd
 systemctl enable httpd
 
+firewall-cmd --permanent --zone=public --add-service=http
 firewall-cmd --permanent --zone=public --add-service=https
 firewall-cmd --reload
 
