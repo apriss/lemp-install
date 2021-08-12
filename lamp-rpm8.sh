@@ -21,10 +21,10 @@ read ans
 case $ans in
          1)
 	    dnf module enable php:remi-7.4 -y
-            apt install libapache2-mod-php7.4 php7.4-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip}-y
+            dnf install libapache2-mod-php7.4 php7.4-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip}-y
             systemctl enable php-fpm
             systemctl start php-fpm
-            systemctl restart apache2
+            systemctl restart httpd
             a2enmod proxy_fcgi setenvif
             a2enconf php7.4-fpm
 	 ;;	
@@ -34,7 +34,7 @@ case $ans in
             apt install libapache2-mod-php8.0 php8.0-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
             systemctl enable php-fpm
             systemctl start php-fpm
-            systemctl restart apache2
+            systemctl restart httpd
             a2enmod proxy_fcgi setenvif
             a2enconf php8.0-fpm
 	 ;;
@@ -55,14 +55,14 @@ echo -n "Please select database server do want to install? (1. MariaDB, 2. Mysql
 read ans
 case $ans in
         1)
-	   apt install mariadb-server -y
+	   dnf install mariadb-server -y
            systemctl start mariadb
            ssystemctl enable mariadb
 	   mysql_secure_installation
 	;;	
         
 	2)
-	   apt install mysql-server -y
+	   dnf install mysql-server -y
            systemctl start mysql
            systemctl enable mysql
 	   mysql_secure_installation
