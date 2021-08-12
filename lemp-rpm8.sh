@@ -29,7 +29,7 @@ case $ans in
 	 ;;	
               
 	 2)
-	    dnf module enable php:remi-8.0 -y
+	    dnf module enable php:remi-8.0 
             dnf install php-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
             systemctl enable php-fpm
             systemctl start php-fpm
