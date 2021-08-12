@@ -4,9 +4,9 @@
 
 #Step 1. INSTALL APACHE WEB SERVER
 apt update
-apt install apache2 -y
-systemctl start apache2
-systemctl enable apache2
+apt install nginx -y
+systemctl start nginx
+systemctl enable nginx
 ufw allow 'Apache Secure'
 
 #STEP 2 iNSTALL PHP MODULE
@@ -17,17 +17,15 @@ echo -n "Please select PHP version do want to install? (1. PHP 7.4, 2. PHP 8, 3.
 read ans
 case $ans in
          1)
-	    apt install libapache2-mod-php7.4 php7.4-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip}-y
-            systemctl restart apache2
-            a2enmod proxy_fcgi setenvif
-            a2enconf php7.4-fpm
+	    apt install php7.4-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip}-y
+            systemctl start php7.4-fpm
+	    systemctl restart nginx
 	 ;;	
               
 	 2)
-	    apt install libapache2-mod-php8.0 php8.0-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
-            systemctl restart apache2
-            a2enmod proxy_fcgi setenvif
-            a2enconf php8.0-fpm
+	    apt install php8.0-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
+            sudo systemctl start php8.0-fpm
+	    systemctl restart nginx
 	 ;;
 	      
 	 3)
