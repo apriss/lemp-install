@@ -18,14 +18,16 @@ echo -n "Please select PHP version do want to install? (1. PHP 7.4, 2. PHP 8, 3.
 read ans
 case $ans in
          1)
-	    sudo apt install php7.4-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip}-y
+	    sudo apt install php7.4-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
             sudo systemctl start php7.4-fpm
+	    sudo systemctl enable php7.4-fpm
             sudo systemctl restart nginx
 	 ;;	
               
 	 2)
 	    sudo apt install php8.0-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
             sudo systemctl start php8.0-fpm
+	    sudo systemctl enable php8.0-fpm
             sudo systemctl restart nginx
 	 ;;
 	      
