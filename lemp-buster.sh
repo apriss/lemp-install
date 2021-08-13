@@ -18,7 +18,7 @@ echo -n "Please select PHP version do want to install? (1. PHP 7.4, 2. PHP 8, 3.
 read ans
 case $ans in
          1)
-	    apt install php7.4-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip}-y
+	    apt install php7.4-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
             systemctl start php7.4-fpm
 	    systemctl enable php-fpm
 	    systemctl restart nginx
