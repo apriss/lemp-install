@@ -2,7 +2,8 @@
 
 #INSTALL APACHE, MYSQL / MARIADB, PHP FOR UBUNTU20 20.04
 
-#Step 1. INSTALL APACHE WEB SERVER
+#STEP 1. INSTALL APACHE WEB SERVER
+timedatectl set-timezone Asia/Jakarta
 apt update
 apt install apache2 -y
 systemctl start apache2
@@ -12,6 +13,7 @@ ufw allow 'Apache Secure'
 #STEP 2 iNSTALL PHP MODULE
 apt install lsb-release ca-certificates apt-transport-https software-properties-common -y
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list
+wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 apt update
 echo -n "Please select PHP version do want to install? (1. PHP 7.4, 2. PHP 8, 3. Skip) " 
 read ans
