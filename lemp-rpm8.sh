@@ -45,7 +45,7 @@ case $ans in
 
 esac
 
-echo "<?php phpinfo(); ?>" > /var/www/html/info.php
+echo "<?php phpinfo(); ?>" > /usr/share/nginx/html/info.php
 
 # Install Database Server
 echo -n "Please select database server do want to install? (1. MariaDB, 2. Mysql, 3. Finish) " 
