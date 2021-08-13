@@ -73,3 +73,5 @@ case $ans in
         ;;
 
 esac
+
+#nano /etc/php-fpm.d/www.conf
