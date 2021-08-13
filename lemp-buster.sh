@@ -3,6 +3,7 @@
 #INSTALL APACHE, MYSQL / MARIADB, PHP FOR UBUNTU20 20.04
 
 #Step 1. INSTALL APACHE WEB SERVER
+timedatectl set-timezone Asia/Jakarta
 apt update
 apt install nginx -y
 systemctl start nginx
