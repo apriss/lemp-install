@@ -11,7 +11,7 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 
 #STEP 2. iNSTALL PHP MODULE
-sudo apt install software-properties-common
+sudo apt install software-properties-common -y
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 echo -n "Please select PHP version do want to install? (1. PHP 7.4, 2. PHP 8, 3. Skip) " 
