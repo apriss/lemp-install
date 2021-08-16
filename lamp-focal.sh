@@ -23,6 +23,7 @@ case $ans in
             sudo systemctl restart apache2
             sudo a2enmod proxy_fcgi setenvif
             sudo a2enconf php7.4-fpm
+	    sudo systemctl reload apache2
 	 ;;	
               
 	 2)
@@ -32,6 +33,7 @@ case $ans in
             sudo systemctl restart apache2
             sudo a2enmod proxy_fcgi setenvif
             sudo a2enconf php8.0-fpm
+	    sudo systemctl reload apache2
 	 ;;
 	      
 	 3)
