@@ -4,9 +4,7 @@ read -p "Enter domain name : " domain
 
 cat > /etc/nginx/sites-available/$domain << EOF
 server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-
+        listen 80 
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
 
@@ -15,6 +13,7 @@ server {
         location / {
                 try_files $uri $uri/ =404;
         }
+        
         location ~ \.php$ {
                 include snippets/fastcgi-php.conf;
                 fastcgi_pass unix:/var/run/php/php8.0-fpm.sock;
