@@ -17,3 +17,5 @@ server {
         }
 }
 EOF
+
+ln -s /etc/nginx/sites-available/$domain /etc/nginx/sites-enabled/
