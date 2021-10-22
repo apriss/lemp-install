@@ -6,7 +6,7 @@ cat > /etc/nginx/sites-available/$domain << EOF
 server {
         listen 80 
         root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
+        index index.html index.php index.htm index.nginx-debian.html;
 
         server_name $domain;
 
