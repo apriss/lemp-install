@@ -15,8 +15,10 @@ server {
         }
         
         location ~ \.php$ {
-                include snippets/fastcgi-php.conf;
-                fastcgi_pass unix:/var/run/php/php8.0-fpm.sock;
+            fastcgi_pass unix:/run/php/php8.0-fpm.sock; 
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+            include snippets/fastcgi-php.conf;
         }
         
         location ~ /\.ht {
@@ -28,3 +30,5 @@ EOF
 
 ln -s /etc/nginx/sites-available/$domain /etc/nginx/sites-enabled/
 unlink /etc/nginx/sites-enabled/default
+
+chown -R www-data:www-data /var/www
