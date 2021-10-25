@@ -1,6 +1,6 @@
-!/bin/bash
+#!/bin/bash
 
-#INSTALL APACHE, MYSQL / MARIADB, PHP FOR UBUNTU20 20.04
+#INSTALL NGINX, MYSQL / MARIADB, PHP FOR UBUNTU20 20.04
 
 #Step 1. INSTALL APACHE WEB SERVER
 timedatectl set-timezone Asia/Jakarta
