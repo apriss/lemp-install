@@ -4,10 +4,10 @@ read -p "Enter domain name : " domain
 
 cat > /etc/nginx/sites-available/$domain << EOF
 server {
-        listen 80 
-        root /var/www/$domain/public_html/;
-        index index.html index.php index.htm index.nginx-debian.html;
+        listen 80;
         server_name $domain www.$domain;
+        root /var/www/$domain/public_html/;
+        index index.html index.php index.htm;
         
         location / {
                 try_files $uri $uri/ /index.php?$args;
