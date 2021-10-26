@@ -4,7 +4,7 @@ chown -R www-data:www-data /var/www
 
 read -p "Enter domain name : " domain
 
-doc="$document_root$fastcgi_script_name";
+doc="$""document_root""$""fastcgi_script_name";
 
 cat > /etc/nginx/sites-available/$domain << EOF
 server {
