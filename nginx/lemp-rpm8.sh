@@ -22,7 +22,7 @@ read ans
 case $ans in
          1)
 	    dnf module enable php:remi-7.4 -y
-            dnf install php-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
+            dnf install php-{cgi,cli,curl,common,fpm,gd,json,ldap,mbstring,opcache,readline,xml,zip} -y
             systemctl enable php-fpm
             systemctl start php-fpm
             systemctl restart nginx
