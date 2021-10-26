@@ -30,7 +30,7 @@ case $ans in
               
 	 2)
 	    dnf module enable php:remi-8.0 -y
-            dnf install php-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,mysql,opcache,readline,redis,xml,zip} -y
+            dnf install php-{cgi,cli,curl,common,fpm,gd,ldap,mbstring,opcache,readline,xml,zip} -y
             systemctl enable php-fpm
             systemctl start php-fpm
             systemctl restart nginx        
