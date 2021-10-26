@@ -2,8 +2,8 @@
 
 #INSTALL NGINX, MYSQL/MARIADB, PHP (LEMP-STACK) FOR RHEL 8 / ALAMA LINUX 8
 
-dnf update
 dnf install -y epel-release
+dnf check-update
 
 # Install Nginx Web Server
 dnf install -y nginx
