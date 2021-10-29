@@ -33,5 +33,3 @@ server {
 EOF
 
 nginx -t
-
-nginx -t
