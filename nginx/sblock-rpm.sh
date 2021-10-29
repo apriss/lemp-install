@@ -6,7 +6,7 @@ read -p "Enter domain name : " domain
 
 doc="$""document_root""$""fastcgi_script_name";
 
-cat > /etc/nginx/sites-available/$domain << EOF
+cat > /etc/nginx/conf.d/$domain.conf << EOF
 server {
         listen 80;
         server_name $domain www.$domain;
@@ -32,7 +32,6 @@ server {
 }
 EOF
 
-ln -s /etc/nginx/sites-available/$domain /etc/nginx/sites-enabled/
-unlink /etc/nginx/sites-enabled/default
+nginx -t
 
 nginx -t
