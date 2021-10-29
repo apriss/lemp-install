@@ -15,7 +15,8 @@ firewall-cmd --permanent --zone=public --add-service=https
 firewall-cmd --reload
 
 # Install PHP Module
-dnf install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf install -y http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf check-update
 dnf module reset php -y
 echo -n "Please select PHP version do want to install? (1. PHP 7.4, 2. PHP 8, 3. Skip) " 
 read ans
