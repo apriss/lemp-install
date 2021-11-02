@@ -42,8 +42,7 @@ server {
         index index.html index.php index.htm;
         
         location / {
-                try_files $uri $uri/ /index.php?$args;
-                
+                try_files $uri $uri/ /index.php?$args;                
         }
         
         location ~ \.php$ {
