@@ -40,6 +40,7 @@ case $ans in
 
 esac
 
+chown -R www-data:www-data /var/www
 echo "<?php phpinfo(); ?>" > /var/www/html/info.php
 
 #STEP 3 INSTALL DATABASE SERVER
