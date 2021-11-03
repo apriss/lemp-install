@@ -1,9 +1,12 @@
 #!/bin/bash
 
 #Generate and Self-Sign an SSL Certificate
+
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx.key -out /etc/ssl/certs/nginx.crt
 
 openssl dhparam -out /etc/nginx/dhparam.pem 4096
+
+#Configure Nginx to Use Private Key and SSL Certificate
 
 cat > /etc/nginx/snippets/self-signed.conf << EOF
 ssl_certificate /etc/ssl/certs/nginx.crt;
@@ -26,6 +29,8 @@ add_header X-XSS-Protection "1; mode=block";
 ssl_dhparam /etc/nginx/dhparam.pem;
 ssl_ecdh_curve secp384r1;
 EOF
+
+#Create Nginx server blocks
 
 read -p "Enter domain name : " domain
 doc="$""document_root""$""fastcgi_script_name";
@@ -54,8 +59,7 @@ server {
         
         location ~ /\.ht {
                 deny all;
-        }
-        
+        }       
 }
 EOF
 
