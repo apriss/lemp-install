@@ -34,6 +34,7 @@ EOF
 
 read -p "Enter domain name : " domain
 doc="$""document_root""$""fastcgi_script_name";
+url="$""uri ""$""uri/ /index.php?""$""args";
 
 cat > /etc/nginx/sites-available/$domain << EOF
 server {
@@ -47,7 +48,7 @@ server {
         index index.html index.php index.htm;
         
         location / {
-                try_files $uri $uri/ /index.php?$args;                
+                try_files $uri;                
         }
         
         location ~ \.php$ {
