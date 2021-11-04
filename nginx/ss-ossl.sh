@@ -67,3 +67,4 @@ ln -s /etc/nginx/sites-available/$domain /etc/nginx/sites-enabled/
 unlink /etc/nginx/sites-enabled/default
 
 nginx -t
+systemctl restart nginx
