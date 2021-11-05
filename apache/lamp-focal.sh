@@ -73,3 +73,5 @@ case $ans in
         ;;
 
 esac
+
+sudo systemctl restart apache2
