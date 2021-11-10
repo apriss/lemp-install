@@ -29,4 +29,4 @@ EOF
 
 a2ensite $domain
 
-systemctl restart apache2
+systemctl reload apache2
