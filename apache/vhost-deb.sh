@@ -3,7 +3,7 @@
 read -p "Enter domain name : " domain
 read -p "Enter server admin mail address : " sa
 
-cat > /etc/apache2/sites-available/$domain << EOF
+cat > /etc/apache2/sites-available/$domain.conf << EOF
 <VirtualHost *:80>
    ServerAdmin $sa
    ServerName $domain
@@ -22,8 +22,8 @@ cat > /etc/apache2/sites-available/$domain << EOF
        SetHandler "proxy:unix:/run/php/php8.0-fpm.sock|fcgi://localhost"
     </FilesMatch>
     
-   ErrorLog ${APACHE_LOG_DIR}/error.log
-     CustomLog ${APACHE_LOG_DIR}/access.log combined
+   ErrorLog ${APACHE_LOG_DIR}/$domain_error.log
+   CustomLog ${APACHE_LOG_DIR}/$domain_access.log combined
 </VirtualHost>
 EOF
 
