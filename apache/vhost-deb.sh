@@ -26,3 +26,7 @@ cat > /etc/apache2/sites-available/$domain << EOF
      CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 EOF
+
+a2ensite $domain
+
+systemctl restart apache2
