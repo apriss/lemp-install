@@ -11,7 +11,7 @@ cat > /etc/apache2/sites-available/$domain.conf << EOF
    DocumentRoot /var/www/$domain/public_html/
    DirectoryIndex index.php
 
-   <Directory /var/www/site1.your_domain>
+   <Directory /var/www/$domain/public_html/
       Options Indexes FollowSymLinks MultiViews
       AllowOverride All
       Order allow,deny
