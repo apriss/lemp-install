@@ -27,7 +27,7 @@ cat > /etc/apache2/sites-available/$domain.conf << EOF
 </VirtualHost>
 EOF
 
-ln -s /etc/apache2/sites-available/$domain.conf /etc/apache2/sites-enabled/
+a2dissite 000-default
 a2ensite $domain
 
 systemctl reload apache2
