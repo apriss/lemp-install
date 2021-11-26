@@ -30,6 +30,9 @@ case $ans in
           CustomLog ${APACHE_LOG_DIR}/$domain_access.log combined
         </VirtualHost>
         EOF
+	
+	a2dissite 000-default
+	a2ensite $domain
   ;;	
               
   2)	      
@@ -58,16 +61,52 @@ case $ans in
         EOF
         
 	cat > /etc/apache2/sites-available/$domain.conf << EOF
-        	
+        <IfModule mod_ssl.c>
+		<VirtualHost _default_:443>
+			ServerAdmin $sa
+			ServerName $domain
+
+			DocumentRoot /var/www/$domaind/public_html
+
+			ErrorLog ${APACHE_LOG_DIR}/error.log
+			CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+			SSLEngine on
+
+			SSLCertificateFile      /etc/ssl/certs/apache-selfsigned.crt
+			SSLCertificateKeyFile   /etc/ssl/private/apache-selfsigned.key
+
+			<FilesMatch "\.(cgi|shtml|phtml|php)$">
+				SSLOptions +StdEnvVars
+			</FilesMatch>
+			<Directory /usr/lib/cgi-bin>
+				SSLOptions +StdEnvVars
+			</Directory>
+
+			BrowserMatch "MSIE [2-6]" \
+				nokeepalive ssl-unclean-shutdown \
+				downgrade-1.0 force-response-1.0
+
+		</VirtualHost>
+	</IfModule>	
         EOF
 	
+	a2enmod ssl
+	a2enmod headers
+	a2dissite 000-default
+	a2ensite $domain
+	sudo a2enconf ssl-params	
   ;;     
         
-	3)
-	    exit;;
+  3)
+	exit;;
 	      
-	*)
-	    echo "Invalid Option"
+  *)
+	echo "Invalid Option"
   ;;
 
 esac
+
+systemctl reload apache2
+apache2ctl configtest
+
