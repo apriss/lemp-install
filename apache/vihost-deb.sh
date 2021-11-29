@@ -16,7 +16,7 @@ ServerAlias www.$domain
 DocumentRoot /var/www/$domain/public_html/
 DirectoryIndex index.php
             
-<Directory /var/www/$domain/public_html/
+<Directory> /var/www/$domain/public_html/
 Options Indexes FollowSymLinks MultiViews
 AllowOverride All
 Order allow,deny
