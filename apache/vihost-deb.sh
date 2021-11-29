@@ -6,34 +6,34 @@ read -p "Enter server admin mail address : " sa
 echo -n "Please select (1. No SSL, 2. SSL with self sign, 3. Skip) " 
 read ans
 case $ans in
-  1)
-        cat > /etc/apache2/sites-available/$domain.conf << EOF
-        <VirtualHost *:80>
+1)
+cat > /etc/apache2/sites-available/$domain.conf << EOF
+<VirtualHost *:80>
         
-          ServerAdmin $sa
-          ServerName $domain
-          ServerAlias www.$domain
-          DocumentRoot /var/www/$domain/public_html/
-          DirectoryIndex index.php
+ServerAdmin $sa
+ServerName $domain
+ServerAlias www.$domain
+DocumentRoot /var/www/$domain/public_html/
+DirectoryIndex index.php
             
-          <Directory /var/www/$domain/public_html/
-                Options Indexes FollowSymLinks MultiViews
-                AllowOverride All
-                Order allow,deny
-                allow from all
-          </Directory>
-          <FilesMatch \.php$>
-                SetHandler "proxy:unix:/run/php/php8.0-fpm.sock|fcgi://localhost"
-          </FilesMatch>
+<Directory /var/www/$domain/public_html/
+Options Indexes FollowSymLinks MultiViews
+AllowOverride All
+Order allow,deny
+allow from all
+</Directory>
+<FilesMatch \.php$>
+SetHandler "proxy:unix:/run/php/php8.0-fpm.sock|fcgi://localhost"
+</FilesMatch>
     
-          ErrorLog ${APACHE_LOG_DIR}/$domain_error.log
-          CustomLog ${APACHE_LOG_DIR}/$domain_access.log combined
-        </VirtualHost>
-        EOF
+ErrorLog ${APACHE_LOG_DIR}/$domain_error.log
+CustomLog ${APACHE_LOG_DIR}/$domain_access.log combined
+</VirtualHost>
+EOF
 	
-	a2dissite 000-default
-	a2ensite $domain
-  ;;	
+a2dissite 000-default
+a2ensite $domain
+;;	
               
   2)	      
 	  openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
