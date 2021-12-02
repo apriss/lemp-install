@@ -67,7 +67,7 @@ cat > /etc/apache2/sites-available/$domain.conf << EOF
 ServerAdmin $sa
 ServerName $domain
 
-DocumentRoot /var/www/$domaind/public_html
+DocumentRoot /var/www/$domain/public_html
 
 ErrorLog ${APACHE_LOG_DIR}/error.log
 CustomLog ${APACHE_LOG_DIR}/access.log combined
