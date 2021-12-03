@@ -7,12 +7,11 @@ a="$""uri";
 b="$""uri/";
 c="/index.php?""$""args
 
-echo -n "Please select (1. No SSL, 2. SSL with self sign, 3. Skip) " 
-read ans
+read -p "Please select (1. No SSL, 2. SSL with self sign, 3. Skip)" ans
+
 case $ans in
 1)
-
-	cat > /etc/nginx/sites-available/$domain << EOF
+cat > /etc/nginx/sites-available/$domain << EOF
 server {
         listen 80;
         server_name $domain www.$domain;
