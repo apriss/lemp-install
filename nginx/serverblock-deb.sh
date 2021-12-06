@@ -1,7 +1,12 @@
 #!/bin/bash
 
+chown -R www-data:www-data /var/www
+doc="$""document_root""$""fastcgi_script_name";
+a="$""uri";
+b="$""uri/";
+c="/index.php?""$""args
+
 read -p "Enter domain name : " domain
-read -p "Enter server admin mail address : " sa
 
 read -p "Please select (1. No SSL, 2. SSL with self sign, 3. Skip) " ans
 case $ans in
