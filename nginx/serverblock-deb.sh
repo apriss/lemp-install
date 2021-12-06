@@ -3,8 +3,7 @@
 read -p "Enter domain name : " domain
 read -p "Enter server admin mail address : " sa
 
-echo -n "Please select (1. No SSL, 2. SSL with self sign, 3. Skip) " 
-read ans
+read -p "Please select (1. No SSL, 2. SSL with self sign, 3. Skip) " ans
 case $ans in
 1)
 cat > /etc/apache2/sites-available/$domain.conf << EOF
