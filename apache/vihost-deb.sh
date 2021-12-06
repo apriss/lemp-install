@@ -34,6 +34,7 @@ EOF
 	
 a2dissite 000-default
 a2ensite $domain
+ufw allow 'Apache Full'
 ;;	
               
 2)	      
@@ -96,7 +97,8 @@ a2enmod ssl
 a2enmod headers
 a2dissite 000-default
 a2ensite $domain
-a2enconf ssl-params	
+a2enconf ssl-params
+ufw allow 'Apache Secure'
 ;;     
         
 3)
