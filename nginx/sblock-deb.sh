@@ -36,6 +36,8 @@ server {
         
 }
 EOF
+
+ufw allow 'Nginx HTTP'
 ;;
 
 2)
@@ -92,6 +94,8 @@ server {
         }       
 }
 EOF
+
+ufw allow 'Nginx HTTPS'
 ;;
 
 3)
