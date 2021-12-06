@@ -5,7 +5,7 @@ read -p "Enter domain name : " domain
 doc="$""document_root""$""fastcgi_script_name";
 a="$""uri";
 b="$""uri/";
-c="/index.php?""$""args
+c="/index.php?""$""args";
 
 read -p "Please select (1. No SSL, 2. SSL with self sign, 3. Skip)" ans
 
