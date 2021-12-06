@@ -4,7 +4,7 @@ chown -R www-data:www-data /var/www
 doc="$""document_root""$""fastcgi_script_name";
 a="$""uri";
 b="$""uri/";
-c="/index.php?""$""args
+c="/index.php?""$""args";
 
 read -p "Enter domain name : " domain
 
